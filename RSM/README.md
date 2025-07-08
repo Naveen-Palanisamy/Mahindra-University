@@ -6,7 +6,7 @@ This project uses R's `rsm` package to build and analyze a Response Surface Mode
 
 Response Surface Methodology (RSM) is a set of statistical techniques for modeling and optimizing processes influenced by several variables. It is especially powerful in **bioprocess engineering**, where experiments can be complex and costly.
 
-### ✅ Why use RSM in Bioprocessing?
+### Why use RSM in Bioprocessing?
 
 - Efficient optimization of process parameters (e.g., pH, temperature, nutrients)
 - Detection of interaction effects between factors
