@@ -1,0 +1,41 @@
+#Response Surface Methodology (RSM)
+#Response Surface Methodology (RSM) is a powerful statistical technique used to optimize bioprocess yields by modeling the relationship between multiple input variables and the response (yield) of a bioprocess. 
+
+
+# Load required library
+library(rsm)
+library(readxl)  # Make sure to load this for reading Excel files
+
+# Read data from Excel file (adjust path if necessary)
+y <- read_excel("Documents/example.xlsx")
+
+# Check structure of the dataset
+str(y)
+
+# Response Surface Model (RSM) - Second-order (quadratic) model
+# You can try other models too (see commented lines below)
+model_Y <- rsm(Yield ~ SO(x1, x2, x3, x4), data = y)
+
+# Other model options you can try:
+# model_Y <- rsm(Yield ~ FO(x1,x2,x3,x4) + SO(x1,x2,x3,x4) + TWI(x1,x2,x3,x4), data = y)
+# model_Y <- rsm(Yield ~ SO(x1,x2,x3,x4) + TWI(x1,x2,x3,x4), data = y)
+# model_Y <- rsm(Yield ~ FO(x1,x2,x3,x4,x1x1,x1x2,x1x3,x1x4,x2x2,x2x3,x2x4,x3x3,x3x4,x4x4), data = y)
+
+# Summary of the model
+summary(model_Y)
+
+# Contour plot of Yield vs x1 and x4
+contour(model_Y, x1 ~ x4, image = TRUE, 
+        xlabs = c("YE", "Temp"))
+
+# 3D Perspective plot
+persp(model_Y, x1 ~ x4,
+      col = terrain.colors(0),
+      contours = "color",
+      zlab = "Yield (%)",
+      zlim = c(0, 100),
+      xlabs = c("YE", "Temp"))
+
+# Predict yield at a given point (change values to your optimized input)
+max <- data.frame(x1 = 12.90851, x2 = 10.35454, x3 = 29.60183, x4 = 127.58982)
+predict(model_Y, max)
