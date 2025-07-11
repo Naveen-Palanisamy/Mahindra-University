@@ -1,4 +1,4 @@
-# 🧬 Gene Coordinate Fetcher from NCBI using BioPython
+# Gene Coordinate Fetcher from NCBI using BioPython
 
 This project contains a Python script that fetches **genomic coordinates** of human genes using the **NCBI Entrez API** and **BioPython**.
 
