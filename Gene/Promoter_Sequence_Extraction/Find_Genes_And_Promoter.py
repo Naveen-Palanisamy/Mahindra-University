@@ -18,7 +18,7 @@ upstream = 2000
 
 # Read gene names from file
 genelist = []
-with open(file='/home/mu/Downloads/bastola_code/geneList.txt', mode='r') as input_file:
+with open(file='/home/usr/Downloads/geneList.txt', mode='r') as input_file:
     genelist = [x.strip() for x in input_file.readlines()]
 
 # Output header and file for gene coordinates
@@ -58,7 +58,7 @@ for gene in genelist:
                 strand = 1  # default is forward
                 words = line.strip().replace('Annotation: ', '').split(' ')
 
-                if "complement)" in words:
+                if "complement" in words:
                     # Gene is on reverse strand
                     [chr, name, nucid, location, _] = words
                     strand = 2  # 2 = reverse strand in Entrez
