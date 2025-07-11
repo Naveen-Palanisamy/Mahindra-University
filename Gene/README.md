@@ -22,3 +22,7 @@ It takes a list of gene names from a text file (`geneList.txt`) and returns each
 - Each line should contain a single gene symbol (e.g., `BRCA1`, `TP53`, `EGFR`).
 
 **Example `geneList.txt`:**
+  1. TBR1
+  2. IL5
+  3. CPPA
+  4. SL3
