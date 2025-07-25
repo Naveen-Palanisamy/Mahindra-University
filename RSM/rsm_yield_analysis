@@ -5,33 +5,34 @@ library(readxl)  # Make sure to load this for reading Excel files
 # Read data from Excel file (adjust path if necessary)
 y <- read_excel("Documents/example.xlsx")
 
-# Check structure of the dataset
+# Check the structure of the dataset
 str(y)
 
 # Response Surface Model (RSM) - Second-order (quadratic) model
-# You can try other models too (see commented lines below)
-model_Y <- rsm(Yield ~ SO(x1, x2, x3, x4), data = y)
+# You can try other models (see commented lines below), the name of the parameter needs to be the  same as in Excel. 
+model_Y <- rsm(Yield ~ SO(Parameter 1,Parameter 2,Parameter 3,Parameter 4), data = y)
 
 # Other model options you can try:
-# model_Y <- rsm(Yield ~ FO(x1,x2,x3,x4) + SO(x1,x2,x3,x4) + TWI(x1,x2,x3,x4), data = y)
-# model_Y <- rsm(Yield ~ SO(x1,x2,x3,x4) + TWI(x1,x2,x3,x4), data = y)
-# model_Y <- rsm(Yield ~ FO(x1,x2,x3,x4,x1x1,x1x2,x1x3,x1x4,x2x2,x2x3,x2x4,x3x3,x3x4,x4x4), data = y)
+# model_Y <- rsm(Yield ~ FO(Parameter 1,Parameter 2,Parameter 3,Parameter 4) + SO(Parameter 1,Parameter 2,Parameter 3,Parameter 4) + TWI(Parameter 1,Parameter 2,Parameter 3,Parameter 4), data = y)
+# model_Y <- rsm(Yield ~ SO(Parameter 1,Parameter 2,Parameter 3,Parameter 4) + TWI(Parameter 1,Parameter 2,Parameter 3,Parameter 4), data = y)
+# model_Y <- rsm(Yield ~ FO(Parameter 1,Parameter 2,Parameter 3,Parameter 4,Parameter 1x1,Parameter 1x2,Parameter 1x3,Parameter 1x4,Parameter 2x2,Parameter 2x3,Parameter 2x4,Parameter 3x3,Parameter 3x4,Parameter 4x4), data = y)
 
 # Summary of the model
 summary(model_Y)
 
-# Contour plot of Yield vs x1 and x4
-contour(model_Y, x1 ~ x4, image = TRUE, 
-        xlabs = c("YE", "Temp"))
+# Contour plot of Yield vs Parameter 1 to Parameter 4
+contour(model_Y, Parameter 1 ~ Parameter 4, image = TRUE, 
+        xlabs = c("YE", "Temp")) # mention the factor
 
 # 3D Perspective plot
-persp(model_Y, x1 ~ x4,
+persp(model_Y, Parameter 1 ~ Parameter 4,
       col = terrain.colors(0),
       contours = "color",
-      zlab = "Yield (%)",
+      zlab = "Yield (%)",#mention your output name(I used to predict the yield)
       zlim = c(0, 100),
-      xlabs = c("YE", "Temp"))
+      xlabs = c("YE", "Temp")) # mention your factor
 
+# after running it, the stationary phase value is displayed in the terminal. Insert the values in the mentioned parameter area
 # Predict yield at a given point (change values to your optimized input)
-max <- data.frame(x1 = 12.90851, x2 = 10.35454, x3 = 29.60183, x4 = 127.58982)
+max <- data.frame(Parameter 1 = 12.90851, Parameter 2 = 10.35454, Parameter 3 = 29.60183, Parameter 4 = 127.58982) #for reference
 predict(model_Y, max)
