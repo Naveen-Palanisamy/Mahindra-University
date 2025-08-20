@@ -1,6 +1,5 @@
 #!/bin/bash
 # Author: Naveen
-# last update 10/18/24
 env_name='adcpsuite'
 
 echo "Running adcpsuite installation script v1.1"
