@@ -13,7 +13,7 @@ Entrez.email = 'yourmail@gmail.com'
 #  Read gene list from a file
 # The input file should have one gene name per line (e.g., TP53, BRCA1, EGFR)
 genelist = []
-with open(file='/home/mu/Downloads/bastola_code/geneList.txt', mode='r') as input_file:
+with open(file='/home/usr/Downloads/geneList.txt', mode='r') as input_file:
     genelist = [x.strip() for x in input_file.readlines()]
 
 # Set up the output file and write header
