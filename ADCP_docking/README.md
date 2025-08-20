@@ -46,18 +46,5 @@ optional arguments:
 .
 .
 ```
-
-**We have also provided a tester file that checks commands required for basic docking**  
-Download the the tester.sh file from this directory and run is using this command in activated adcpsuite environment:  
-```sh
-(adcpsuite) USERNAME@SYSTEM:~$ chmod +x tester.sh
-(adcpsuite) USERNAME@SYSTEM:~$ ./tester.sh
-```
-This command may take a few minutes to complete. After completion, it will generate a log file that can be analyzed to find errors.  
-  
-```sh
-cat test_ADCP\log.out
-```
-
 **MORE DETAILS ON RUNNING ADCP BASED DOCKING CAN BE FOUND FROM THE CCSB SITE**  
 https://ccsb.scripps.edu/adcpv11/documentation/ 
