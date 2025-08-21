@@ -10,7 +10,7 @@ conda activate adcpsuite
 https://files.rcsb.org/download/3Q47.pdb  
   
 **In Chimera:**  
-Clear Water   
+Clear Water
 Save receptor and peptide pdb files  
   
 **Add H:**
